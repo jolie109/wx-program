@@ -1,0 +1,31 @@
+.no{
+  width:100%;
+  height:100%;
+  background:white;
+}
+.wrap{
+  width:100%;
+  position: absolute;
+  top:50%;
+  left:50%;
+   box-sizing: border-box;
+  padding:0 5px;
+  transform: translate(-50%,-100%);
+}
+.title{
+  font-size:50rpx;
+  font-weight: 400;
+  padding:5px 10px;
+}
+.stitle{
+  font-size:36rpx;
+  font-weight: 400;
+}
+.border{
+  font-size:28rpx;
+  padding:5px 10px;
+  border-bottom:1px solid #ccc;
+}
+.padding{
+   padding:5px 10px;
+}

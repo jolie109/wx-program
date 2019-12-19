@@ -1,0 +1,80 @@
+
+//转换千位制数据
+var changeNum = function(num) {
+  var result = [], counter = 0;
+  num = (num || 0).toString().split('');
+  for (var i = num.length - 1; i >= 0; i--) {
+    counter++;
+    result.unshift(num[i]);
+    if (!(counter % 3) && i != 0) { result.unshift(','); }
+  }
+  return result.join('');
+}
+var changeZh=function(item){
+  if (item === 'blackA3') {
+    return '黑白A3'
+  }
+  if (item === 'blackA4') {
+    return '黑白A4'
+  }
+  if (item === 'colorA3') {
+    return '彩色A3'
+  }
+  if (item === 'colorA4') {
+    return '彩色A4'
+  }
+}
+var changeCount = function(item){
+  if (item.blackA3){
+    return '黑白A3'
+  }
+  if (item.blackA4) {
+    return '黑白A4'
+  }
+  if (item.colorA3) {
+    return '彩色A3'
+  }
+  if (item.colorA3) {
+    return '彩色A4'
+  }
+}
+var changeValue = function (item) {
+  if (item.blackA3) {
+    return item.blackA3
+  }
+  if (item.blackA4) {
+    return item.blackA4
+  }
+  if (item.colorA3) {
+    return item.colorA3
+  }
+  if (item.colorA3) {
+    return item.colorA3
+  }
+}
+var getCount = function(item,type){
+  item = [{ blackA3: 3000 }, { blackA4: 3000 }, { colorA3: 4000 }];
+  var count = ''
+  if (type === '黑白A3') {
+    count =  'blackA3'
+  }
+  if (type === '黑白A4') {
+   count =  'blackA4'
+  }
+  if (type === '彩色A3') {
+   count =  'colorA3'
+  }
+  if (type === '彩色A4') {
+   count =  'colorA4'
+  }
+  for (var i = 0; i < item.length; i++){
+    return 3000
+  }
+}
+module.exports = {
+  changeNum:changeNum,
+  changeCount: changeCount,
+  changeValue: changeValue,
+  getCount: getCount,
+  changeZh: changeZh
+}

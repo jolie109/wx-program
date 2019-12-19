@@ -1,0 +1,23 @@
+.classifyBg{
+    padding: 40px 20px 30px;
+    box-shadow: 0px 0px 6px 1px #ccc;
+    position: relative;
+}
+.classifyBgFlex{
+    background: #E0E1E2;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: -65px 0 35px;
+}
+.classifyBgFlex p{
+    margin-bottom: 0px;
+}
+.classifyBgFlex p:nth-of-type(1){
+    color:#333300 ;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.classifyBgFlex p:nth-of-type(2){
+    color:#333333 ;
+    font-size: 15px;
+}

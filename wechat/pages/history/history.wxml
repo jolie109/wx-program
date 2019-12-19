@@ -1,0 +1,107 @@
+<!--pages/history/history.wxml-->
+<wxs src="../../filters/changeNum.wxs" module="filters"></wxs>
+<view class='all'>
+  <view class='history container'>
+    <view class='center'>{{workCenter}}</view>
+    <view class='top'>
+      <view class="tapbar">
+        <!-- 设备分类 -->
+        <view class='selectE section'>
+          <view class='m-title title'>选择分类:</view>
+          <view class='m-con con'>
+            <picker bindchange="bindPickerChangeC" value="{{indexC}}" range="{{arrayC}}">
+              <view class="picker" bindtap=''>{{arrayC[indexC]}}</view>
+            </picker>
+          </view>
+        </view>
+        <!-- 选择机器 -->
+        <view class='selectM section'>
+          <view class='m-title title'>选择机器:</view>
+          <view class='m-con con'>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="picker" bindtap=''>{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+        <!-- 选择日期 -->
+        <view class='selectT section'>
+          <view class='t-title title'>打印日期:</view>
+          <view class="t-right">
+            <view class='t-con tc'>
+              <picker mode="date" value="{{date2}}" bindchange="bindStartChange" end="{{nowTime}}">
+                <view class="picker">{{date2}}</view>
+              </picker>
+            </view>
+            <view class="cent">至</view>
+            <view class='t-con tc'>
+              <picker mode="date" value="{{date3}}" bindchange="bindEndChange" start="{{date2}}" end="{{nowTime}}">
+                <view class="picker">{{date3}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 历史记录表格显示 -->
+      <view class='down'>
+        <!-- 根据分类名称 -->
+        <view class="table" style='display:{{displaym}}'>
+          <view class="tr bg-w">
+            <view class="th">小名</view>
+            <!-- <view class="th">打印日期</view> -->
+            <!-- <view class="th">状态</view> -->
+            <view class="th">序列号</view>
+            <view class="th">打印日期</view>
+            <!-- <view class="th">添加人</view> -->
+            <view class="th">分类</view>
+          </view>
+          <block wx:for="{{countP}}" wx:key="{{index}}" wx:for-item='items'>
+            <view class="tr" bindtap="toggleCount" data-index="{{index}}">
+              <view class="td">{{items.nickName}}</view>
+              <view class="td">{{items.serialNumber}}</view>
+              <view class="td">{{items.cate.printDate}}</view>
+              <view class="td">{{items.category}}</view>
+            </view>
+            <view class="{{cindex===index && isShow? 'isShow':'noShow'}},table hidtr">
+              <view class="tr bg-hid">
+                <view class="th">类型</view>
+                <view class="th">日印量</view>
+                <view class="th">计数值</view>
+              </view>
+              <block animation="{{animationMask}}" wx:for="{{items.cate.type}}" wx:for-item='singleClick' wx:key="{{index}}">
+                <view class="tr ">
+               <view class="td">{{filters.changeZh(singleClick.type)}}</view>
+                  <view class="td">{{filters.changeNum(singleClick.last_day_click)}}</view>
+                  <view class="td">{{filters.changeNum(singleClick.click_count)}}</view>
+                </view>
+              </block>
+            </view>
+          </block>
+        </view>
+        <view class="print-count" style='display:{{displaym}}'  wx:if="{{countP.length}}">
+         <text class="p-title">总印量</text>
+        <view class="p-cont">
+         <view>
+         <text  wx:if="{{blackA3}}">黑白A3</text>
+          <text class="p-num" wx:if="{{blackA3}}">{{blackA3}}</text>
+         </view>
+      <view>
+           <text  wx:if="{{blackA4}}">黑白A4</text>
+          <text class="p-num" wx:if="{{blackA4}}">{{blackA4}}</text>
+      </view>
+        </view>
+          <view class="p-cont">
+         <view>
+         <text  wx:if="{{colorA3}}">彩色A3</text>
+          <text class="p-num" wx:if="{{colorA3}}">{{colorA3}}</text>
+         </view>
+          <view>
+           <text  wx:if="{{colorA4}}">彩色A4</text>
+          <text class="p-num" wx:if="{{colorA4}}">{{colorA4}}</text>
+          </view>
+        </view>
+         </view>
+        <!-- 根据机器和打印日期 -->
+      </view>
+    </view>
+  </view>
+</view>

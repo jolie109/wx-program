@@ -1,0 +1,57 @@
+/**app.wxss**/
+page{
+background:rgba(241, 245, 247, 0.5);
+}
+.all{
+  height: 100%;
+  
+}
+.container { 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+view,text{
+  font-size: 30rpx;
+  
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 1317552 */
+  src: url('https://at.alicdn.com/t/font_1317552_ivzgdmf846i.eot');
+  src: url('http://at.alicdn.com/t/font_1317552_ivzgdmf846i.eot?#iefix') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_1317552_ivzgdmf846i.woff2') format('woff2'),
+  url('http://at.alicdn.com/t/font_1317552_ivzgdmf846i.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1317552_ivzgdmf846i.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_1317552_ivzgdmf846i.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-weibiaoti37:before {
+  content: "\e636";
+}
+
+.icon-yk_yuanquan_fill:before {
+  content: "\e600";
+}
+
+.picker {
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+
+
+
+
+
+

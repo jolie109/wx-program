@@ -1,0 +1,9 @@
+<view class="no">
+<view class="wrap">
+<view class="title">您未被授权查看此页面</view>
+<view class="border">您不具备使用所提供的凭据查看该目录或页的权限</view>
+<view  class="padding stitle">请尝试以下操作:</view>
+<view class="padding"><text>·</text>   如果您认为自己应该能够查看该目录或页面，请与网站管理员联系</view>
+<view class="padding"><text>·</text>   清除小程序重新登录</view>
+</view>
+</view>

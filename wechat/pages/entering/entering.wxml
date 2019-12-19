@@ -1,0 +1,75 @@
+<!--pages/entering/entering.wxml-->
+<view class='all inp-cont'>
+  <view class='entering'>
+    <!-- 选择机器 -->
+    <view class='selectM section'>
+      <view class='m-title title'>选择机器</view>
+      <view class='m-con con'>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="picker">{{array[index]}}</view>
+        </picker>
+      </view>
+    </view>
+    <!-- 选择日期 -->
+    <view class='selectT section'>
+      <view class='title'>打印日期</view>
+      <view class='t-con con'>
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange" end="{{nowTime}}" start="{{firstDate}}">
+          <view class="picker">{{date}}</view>
+        </picker>
+      </view>
+    </view>
+    <!-- 判断设备分类为打印机时 -->
+    <view class="isPrint" style="display:{{displayP}}">
+      <!-- 设备分类 -->
+      <view class='equipment section'>
+        <text class='title'>设备分类</text>
+        <text class='con'>{{equipment}}</text>
+      </view>
+      <!-- 上一次打印量 -->
+      <block wx:for="{{lastCount}}" wx:key="{{index}}" wx:for-item='items'>
+        <view class='lastPtint section'>
+          <text class='title'>{{items.typeText}}计数值</text>
+          <text class='con '>{{items.click_countthound}}</text>
+        </view>
+      </block>
+      <!-- 当前打印量 -->
+      <block wx:for="{{lastCount}}" wx:key="{{index}}" wx:for-item='items'>
+        <view class='currentPrint section'>
+          <text class='title'>当前{{items.typeText}}计数值</text>
+          <input type='text' value='{{items.click_countpre3}}{{text}}' placeholder='{{printCount}}' class='text-input con add-line' bindinput="curentPrintvalueb3" focus="true" data-type="{{items.type}}"></input>
+        </view>
+      </block>
+      <!-- 报废数量量 -->
+      <view class='lastPtint section'>
+        <text class='title'>报废数量</text>
+        <input type='text' value='{{invalid_click}}' placeholder='{{Bound}}' class='text-input con invalid add-line' bindinput="invalidclick"></input>
+      </view>
+
+    </view>
+
+    <!-- 判断设备分类为非打印机时 -->
+    <view class="noPrint" style="display:{{displayN}}">
+      <!-- 设备分类 -->
+      <view class='equipment section'>
+        <text class='title'>设备分类</text>
+        <text class='con'>{{equipment}}</text>
+      </view>
+      <!-- 装订量 -->
+      <view class='bound section'>
+        <text class='title'>装订量</text>
+        <input type='text' value='{{bound}}' placeholder='{{Bound}}' class='text-input con add-line' bindinput="Boundvalue"></input>
+      </view>
+      <!-- 报废数量量 -->
+      <view class='lastPtint section'>
+        <text class='title'>报废数量</text>
+        <input type='text' value='{{invalid_click}}' placeholder='{{Bound}}' class='text-input con add-line' bindinput="invalidclick"></input>
+      </view>
+    </view>
+    <view class='button'>
+      <button type='primary' size='mini' plain='true' disabled='{{disabled}}' bindtap='clickAdd'>确定</button>
+      <button type="warn" size="mini" plain="true" bindtap='close'> 取消 </button>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,146 @@
+/* pages/history/history.wxss */
+.history{
+  padding:40rpx 20rpx;
+  font-size: 22rpx
+}
+.center{
+
+  margin: 20rpx auto;
+  font-size: 40rpx;
+
+}
+.tapbar{
+  display: flex;
+  flex-direction: column
+}
+.tapbar>view{
+  flex:1;
+}
+.section{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+}
+.title{
+  width: 20%;
+  text-align: center;
+}
+.con{
+  width: 68%
+} 
+.t-right{
+   width:68%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.t-con{
+  width:44%;
+}
+.cent{
+  margin:0 6px;
+}
+/* pages/count/count.wxss */
+.top{
+  width: 100%
+}
+.down{
+  width: 100%
+}
+.table {
+width: 100%;
+ border: 0px solid darkgray;
+ font-size: 22rpx;
+ padding:20rpx 0;
+ margin: 40rpx auto;
+ text-align: center;
+}
+.tr {
+ display: flex;
+ width: 100%;
+ justify-content: center;
+ height: 2.5rem;
+ align-items: center;
+}
+.td {
+  width:40%;
+  justify-content: center;
+  text-align: center;
+  align-items: center
+}
+.bg-w{
+ background: snow;
+  background: #487EE2;
+   border-radius: 5px;
+   text-align: center
+}
+  .bg-hid{
+    background: #ccc;
+   border-radius: 5px;
+   text-align: center
+  }
+.th {
+ width: 40%;
+ display: flex;
+ justify-content: center;
+ color: #fff;
+ height: 2rem;
+ align-items: center;
+ text-align: center;
+
+}
+/* 日期选择 */
+.picker_group {
+  height: 85rpx;
+  line-height: 85rpx;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  color: #888;
+  border-bottom: 1rpx solid #efefef;
+
+}
+
+.picker_group picker {
+  /* background-color: yellow; */
+  height: 55rpx;
+  line-height: 55rpx;
+  margin: 0 2%;
+  padding: 0 2%;
+}
+.print-count{
+  padding:0 20rpx;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items: center;
+}
+.print-count text{
+  width:30%;
+  margin-left:5rpx;
+  margin-right:20rpx;
+}
+.noShow{
+  display: none;
+}
+.isShow{
+  display: block;
+}
+.hidtr{
+  z-index:200;
+  box-shadow: 6px 6px 6px #ccc;
+
+}
+.p-title{
+  font-size:18px;
+}
+.p-cont{
+  display: flex;
+  margin-right:20px;
+  justify-content: start;
+  align-items: center;
+}

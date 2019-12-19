@@ -1,0 +1,78 @@
+<wxs src="../../filters/changeNum.wxs" module="filters"></wxs>
+<view class='all'>
+  <!-- 当前打印中心 --><!-- 当前打印中心 -->
+  <view class='currentCenter section'>
+    <view class='center-title title'>制作中心</view>
+    <view class='center-con'>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{arrayCenter}}">
+        <view class="picker title-con">
+         {{arrayCenter[index]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class='printDate section'>
+    <view class='date-title title'>打印日期</view>
+    <view class='date-con'>
+      {{date}}
+    </view>
+  </view>
+<navigator url='../entering/entering'>
+  <button class='addPrint' plain='{{plain}}'>
+    <icon class="iconfont icon-weibiaoti37"></icon>
+添加打印量
+  </button>
+</navigator>
+<!-- 设备分类为打印机时 -->
+<view class='container' style="display:{{displayP}}">
+<view class="table" >
+          <view class="tr bg-w">
+            <view class="th">小名</view>
+            <view class="th">序列号</view>
+            <view class="th">打印日期</view>
+            <view class="th">分类</view>
+          </view>
+          <block wx:for="{{countP}}" wx:key="{{index}}" wx:for-item='items'>
+            <view class="tr" bindtap="toggleCount" data-index="{{index}}">
+              <view class="td">{{items.item[0].nickName}}</view>
+              <view class="td">{{items.item[0].serialNumber}}</view>
+              <view class="td">{{items.printDate}}</view>
+              <view class="td">{{items.item[0].category}}</view>
+            </view>
+            <view class="{{cindex===index && isShow? 'isShow':'noShow'}},table hidtr">
+              <view class="tr bg-hid">
+                <view class="th">类型</view>
+                <view class="th">日印量</view>
+                <view class="th">计数值</view>
+              </view>
+              <block animation="{{animationMask}}" wx:for="{{items.type}}" wx:for-item='singleClick' wx:key="{{index}}">
+                <view class="tr ">
+                  <view class="td">{{filters.changeZh(singleClick.type)}}</view>
+                  <view class="td">{{filters.changeNum(singleClick.last_day_click)}}</view>
+                  <view class="td">{{filters.changeNum(singleClick.click_count)}}</view>
+                </view>
+              </block>
+            </view>
+          </block>
+        </view>
+</view>
+<!-- 设备分类为非打印机时 -->
+<view class='container' style="display:{{displayN}}">
+    <view class="table">
+      <view class="tr bg-w">
+        <view class="th">小名</view>
+        <view class="th sth">状态</view>
+        <view class="th">工作量</view>
+      </view>
+      <block wx:for="{{countN}}" wx:key="{{value.id}}" wx:for-item='items'> 
+        <view class="tr">
+        <view class="td">{{items.item[0].nickName}}</view>
+        <view class="td status-td">
+            <view class="status {{items.status==='0'?'statusR':items.status==='1'?'statusG':'statusH'}}"></view>
+        </view>
+           <view class="td">{{filters.changeNum(items.cate.last_day_click)}}</view> 
+        </view>  
+      </block>
+    </view>
+</view>
+</view>

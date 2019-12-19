@@ -1,0 +1,8 @@
+.log-list {
+ width:100%;
+ display: flex;
+ justify-content: center;
+}
+.log-item {
+  font-size: 40rpx;
+}
